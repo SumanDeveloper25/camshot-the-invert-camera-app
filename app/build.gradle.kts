@@ -5,15 +5,14 @@ plugins {
 
 android {
     namespace = "com.example.camshot"
-    compileSdk = 34
+    compileSdk = 35
 
     defaultConfig {
         applicationId = "com.example.camshot"
         minSdk = 26
         targetSdk = 34
         versionCode = 1
-        versionName = "1.0"
-
+        versionName = "2.0"
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
 
@@ -33,17 +32,28 @@ android {
     kotlinOptions {
         jvmTarget = "1.8"
     }
+    viewBinding {
+        enable = true
+    }
 }
 
 dependencies {
 
-    implementation(libs.androidx.core.ktx)
+//    implementation(libs.androidx.core.ktx)
+    implementation ("androidx.core:core-ktx:1.12.0")
     implementation(libs.androidx.appcompat)
     implementation(libs.material)
     implementation(libs.androidx.activity)
     implementation(libs.androidx.constraintlayout)
-    implementation(libs.androidx.camera.view)
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
+
+    // camera and storage
+    implementation(libs.androidx.camera.view)
+    implementation(libs.androidx.camera.core)
+    implementation(libs.androidx.camera.lifecycle)
+    implementation(libs.androidx.camera.camera2)
+    implementation (libs.camera.camera2)
+
 }

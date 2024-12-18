@@ -3,3 +3,8 @@ plugins {
     alias(libs.plugins.android.application) apply false
     alias(libs.plugins.jetbrains.kotlin.android) apply false
 }
+
+// Ensure Gradle wrapper uses the latest supported Gradle version.
+tasks.register("clean", Delete::class) {
+    delete(rootProject.buildDir)
+}
